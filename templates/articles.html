@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Articles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fa-solid fa-folder-open"></i> All Stored Articles</h1>
+    </header>
+    <main>
+        {% if articles %}
+            <ul class="articles-list">
+                {% for article_id, article in articles.items() %}
+                    <li>
+                        <h2><a href="{{ url_for('view_article', article_id=article_id) }}">{{ article.title }}</a></h2>
+                        <p>{{ article.content[:100] }}...</p>
+                        <a href="{{ url_for('view_article', article_id=article_id) }}">Read More</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No articles have been submitted yet. <a href="{{ url_for('index') }}">Create one now!</a></p>
+        {% endif %}
+    </main>
+    <footer>
+        <p>Made with ❤️ by Krishna!</p>
+    </footer>
+</body>
+</html>

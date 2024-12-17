@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dynamic Dataset </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fa-solid fa-pen"></i> Create a New Article</h1>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Enter Article Details</h2>
+            <form method="POST" action="/">
+                <label for="title"><i class="fa-solid fa-heading"></i> Article Title:</label>
+                <input type="text" id="title" name="title" placeholder="Enter a catchy title" required>
+                
+                <label for="content"><i class="fa-solid fa-align-left"></i> Article Content:</label>
+                <textarea id="content" name="content" rows="10" placeholder="Paste or write your article content here..." required></textarea>
+                
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i> Submit</button>
+            </form>
+        </section>
+        <section class="view-articles-section">
+            <h2>View Stored Articles</h2>
+            <a href="{{ url_for('list_articles') }}" class="view-articles-button">
+                <button><i class="fa-solid fa-folder-open"></i> View All Articles</button>
+            </a>
+        </section>
+    </main>
+    <footer>
+        <p>Made with ❤️ by Krishna!</p>
+    </footer>
+</body>
+</html>
